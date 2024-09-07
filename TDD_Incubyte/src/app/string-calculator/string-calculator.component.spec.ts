@@ -28,4 +28,8 @@ describe('StringCalculatorComponent', () => {
   it('should return the number itself if only one number is provided', () => {
     expect(component.add('1')).toBe(1);
   });
+
+  it('should return the sum of two numbers separated by a comma', () => {
+    expect(component.add('1,5')).toBe(6);
+  });
 });

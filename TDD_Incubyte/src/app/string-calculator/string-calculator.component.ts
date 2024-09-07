@@ -14,6 +14,7 @@ export class StringCalculatorComponent {
     if (numbers === '') {
       return 0;
     }
-    return parseInt(numbers);
+    const numArray = numbers.split(',').map(num => parseInt(num));
+    return numArray.reduce((sum, current) => sum + current, 0);
   }
 }
