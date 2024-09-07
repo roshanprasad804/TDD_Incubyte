@@ -48,4 +48,8 @@ describe('StringCalculatorComponent', () => {
   it('should throw an exception listing all negative numbers', () => {
     expect(() => component.add('1,-2,-5,3')).toThrowError('negative numbers not allowed: -2,-5');
   });
+
+  it('should ignore numbers greater than 1000', () => {
+    expect(component.add('2,1001')).toBe(2);
+  });
 });
