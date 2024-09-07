@@ -8,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './string-calculator.component.css'
 })
 export class StringCalculatorComponent {
-  
+  constructor() {}
+
+  add(numbers: string): number {
+    if (numbers === '') {
+      return 0;
+    }
+    return -1;
+  }
 }
