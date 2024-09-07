@@ -37,7 +37,15 @@ describe('StringCalculatorComponent', () => {
     expect(component.add('1\n2,3')).toBe(6);
   });
 
-  fit('should support custom delimiters defined in the format "//[delimiter]\\n[numbers]"', () => {
+  it('should support custom delimiters defined in the format "//[delimiter]\\n[numbers]"', () => {
     expect(component.add('//;\n1;2')).toBe(3);
+  });
+
+  it('should throw an exception when negative numbers are passed', () => {
+    expect(() => component.add('1,-2,3')).toThrowError('negative numbers not allowed: -2');
+  });
+
+  it('should throw an exception listing all negative numbers', () => {
+    expect(() => component.add('1,-2,-5,3')).toThrowError('negative numbers not allowed: -2,-5');
   });
 });

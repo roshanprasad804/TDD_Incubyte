@@ -20,8 +20,12 @@ export class StringCalculatorComponent {
       delimiter = new RegExp(numbers.substring(2, delimiterEndIndex));
       numbers = numbers.substring(delimiterEndIndex + 1);    
     }
-
+    
     const numArray = numbers.split(delimiter).map(num => parseInt(num));
+    const negativeNumbers = numArray.filter(num => num < 0);
+    if (negativeNumbers.length > 0) {
+      throw new Error(`negative numbers not allowed: ${negativeNumbers.join(',')}`);
+    }
     return numArray.reduce((sum, current) => sum + current, 0);
   }
 }
