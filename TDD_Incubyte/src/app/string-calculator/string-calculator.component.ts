@@ -14,6 +14,6 @@ export class StringCalculatorComponent {
     if (numbers === '') {
       return 0;
     }
-    return -1;
+    return parseInt(numbers);
   }
 }

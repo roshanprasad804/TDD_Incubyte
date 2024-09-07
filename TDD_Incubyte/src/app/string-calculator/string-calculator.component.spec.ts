@@ -24,4 +24,8 @@ describe('StringCalculatorComponent', () => {
   it('should return 0 for an empty string', () => {
     expect(component.add('')).toBe(0);
   });
+
+  it('should return the number itself if only one number is provided', () => {
+    expect(component.add('1')).toBe(1);
+  });
 });
