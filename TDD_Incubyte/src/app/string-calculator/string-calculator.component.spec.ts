@@ -36,4 +36,8 @@ describe('StringCalculatorComponent', () => {
   it('should handle new lines between numbers', () => {
     expect(component.add('1\n2,3')).toBe(6);
   });
+
+  fit('should support custom delimiters defined in the format "//[delimiter]\\n[numbers]"', () => {
+    expect(component.add('//;\n1;2')).toBe(3);
+  });
 });

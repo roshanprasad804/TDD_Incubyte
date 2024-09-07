@@ -14,7 +14,14 @@ export class StringCalculatorComponent {
     if (numbers === '') {
       return 0;
     }
-    const numArray = numbers.replace(/\n/g, ',').split(',').map(num => parseInt(num));
+    let delimiter = /,|\n/;
+    if (numbers.startsWith('//')) {
+      const delimiterEndIndex = numbers.indexOf('\n');
+      delimiter = new RegExp(numbers.substring(2, delimiterEndIndex));
+      numbers = numbers.substring(delimiterEndIndex + 1);    
+    }
+
+    const numArray = numbers.split(delimiter).map(num => parseInt(num));
     return numArray.reduce((sum, current) => sum + current, 0);
   }
 }
